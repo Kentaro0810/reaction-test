@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="画面の変化に反応してタップする反射神経テスト" />
+  <title>反射神経テスト</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <div>
+        <p class="badge">REACTION TEST</p>
+        <h1>反射神経テスト</h1>
+        <p class="description">青い画面が緑色に変わったら、できるだけ早くタップしてください。</p>
+      </div>
+      <a class="home-link" href="https://kentaro0810.github.io/">リンク集へ戻る</a>
+    </header>
+
+    <section class="game-card" aria-labelledby="gameTitle">
+      <div class="round-row">
+        <p id="roundLabel" class="round-label">ラウンド 1 / 5</p>
+        <p id="bestLabel" class="best-label">自己ベスト：未記録</p>
+      </div>
+
+      <button id="reactionArea" class="reaction-area state-idle" type="button" aria-describedby="gameHelp">
+        <span id="areaIcon" class="area-icon" aria-hidden="true">⚡</span>
+        <span id="gameTitle" class="area-title">準備ができたらタップ</span>
+        <span id="areaText" class="area-text">5回の平均と最速記録を測定します</span>
+      </button>
+
+      <p id="gameHelp" class="help-text">開始後は、画面が緑色になるまでタップしないでください。</p>
+      <p id="liveMessage" class="sr-only" aria-live="assertive"></p>
+
+      <div class="action-row">
+        <button id="resetButton" class="secondary-button" type="button">最初からやり直す</button>
+        <button id="clearBestButton" class="text-button" type="button">自己ベストを削除</button>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="今回の記録">
+      <article class="stat-card highlight-card">
+        <p class="stat-label">今回の平均</p>
+        <p id="averageResult" class="stat-value">---</p>
+        <p class="stat-note">5回完了後に表示</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">今回の最速</p>
+        <p id="fastestResult" class="stat-value">---</p>
+        <p class="stat-note">成功した記録の最小値</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">フライング</p>
+        <p id="falseStartCount" class="stat-value">0回</p>
+        <p class="stat-note">緑色になる前のタップ</p>
+      </article>
+    </section>
+
+    <section class="history-card" aria-labelledby="historyTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ROUND RESULTS</p>
+          <h2 id="historyTitle">5回の記録</h2>
+        </div>
+        <p id="progressText" class="progress-text">0 / 5 完了</p>
+      </div>
+      <ol id="resultList" class="result-list">
+        <li><span>1回目</span><strong>---</strong></li>
+        <li><span>2回目</span><strong>---</strong></li>
+        <li><span>3回目</span><strong>---</strong></li>
+        <li><span>4回目</span><strong>---</strong></li>
+        <li><span>5回目</span><strong>---</strong></li>
+      </ol>
+    </section>
+
+    <section class="info-card">
+      <h2>遊び方</h2>
+      <ol>
+        <li>中央の大きな画面をタップして開始します。</li>
+        <li>青い「待って…」画面ではタップしません。</li>
+        <li>画面が緑色になったら、すぐにタップします。</li>
+        <li>5回測定すると、平均・最速・自己ベストが表示されます。</li>
+      </ol>
+      <p>自己ベストだけを、この端末のブラウザー内に保存します。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
